@@ -32,33 +32,14 @@ export default function Header() {
           <Link href="/" className="text-white text-2xl font-light tracking-widest">
             <span>1352</span> <span className="text-amber-400">SOUTH</span>
           </Link>
-          
-          <nav className="hidden md:block">
-            <ul className="flex space-x-8">
-              <li>
-                <Link href="/#about" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/#properties" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
-                  Residences
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contact" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <nav className="hidden md:flex space-x-8"></nav>
           
           <div className="hidden md:block">
             <Link 
               href="/#contact" 
               className="bg-transparent border border-amber-400 text-amber-400 py-2 px-4 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-sm tracking-wider uppercase font-light"
             >
-              Schedule Tour
+              Contact
             </Link>
           </div>
           

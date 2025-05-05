@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import FallbackSearch from '@/components/property/FallbackSearch';
 
 export default function SearchDetails() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,7 +14,14 @@ export default function SearchDetails() {
     
     // MBB needs to refresh when the page loads
     if (window.MBB && typeof window.MBB.refresh === 'function') {
-      window.MBB.refresh();
+      try {
+        console.log('Calling MBB.refresh from search page');
+        window.MBB.refresh();
+      } catch (err) {
+        console.error('Error refreshing MBB:', err);
+      }
+    } else {
+      console.warn('MBB object not available or refresh method not found on search page');
     }
   }, []);
 
@@ -68,6 +76,9 @@ export default function SearchDetails() {
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-400"></div>
               </div>
             </div>
+            
+            {/* Fallback in case Buying Buddy fails to load */}
+            <FallbackSearch />
           </div>
         </motion.div>
       </div>

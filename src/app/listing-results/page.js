@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import FallbackListings from '@/components/property/FallbackListings';
 
 export default function ListingsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,7 +14,14 @@ export default function ListingsPage() {
     
     // MBB needs to refresh when the page loads
     if (window.MBB && typeof window.MBB.refresh === 'function') {
-      window.MBB.refresh();
+      try {
+        console.log('Calling MBB.refresh from listing-results page');
+        window.MBB.refresh();
+      } catch (err) {
+        console.error('Error refreshing MBB:', err);
+      }
+    } else {
+      console.warn('MBB object not available or refresh method not found');
     }
   }, []);
 
@@ -52,13 +60,19 @@ export default function ListingsPage() {
             </div>
 
             {/* Buying Buddy Listings Container */}
-           <div id="MBBv3_FeaturedList"
-            filter="mls_id:demo+listing_status:active+login-panel:false+header-menu:false+limit:15+order:price">
+            <div 
+              id="MBBv3_FeaturedList"
+              filter="mls_id:demo+listing_status:active+login-panel:false+header-menu:false+limit:15+order:price"
+              className="w-full min-h-[600px]"
+            >
               {/* Content will be injected by Buying Buddy */}
               <div className="flex justify-center items-center h-64">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-400"></div>
               </div>
             </div>
+            
+            {/* Fallback in case Buying Buddy fails to load */}
+            <FallbackListings />
           </div>
         </motion.div>
       </div>

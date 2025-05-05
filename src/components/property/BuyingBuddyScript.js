@@ -1,163 +1,82 @@
 'use client';
 
-import Script from 'next/script';
-import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function BuyingBuddyScript() {
   const pathname = usePathname();
   
-  // Debug script loading
   useEffect(() => {
-    console.log('BuyingBuddyScript loading on path:', pathname);
+    // Only load on relevant pages
+    if (!pathname.includes('/property') && 
+        pathname !== '/' && 
+        pathname !== '/listing-results' && 
+        pathname !== '/search') {
+      return;
+    }
     
-    // This creates a global error handler that might catch script loading issues
-    const originalOnError = window.onerror;
-    window.onerror = function(message, source, lineno, colno, error) {
-      console.error('Script error caught:', { message, source, lineno, colno });
-      if (originalOnError) {
-        return originalOnError(message, source, lineno, colno, error);
-      }
-      return false;
-    };
+    console.log('Loading Buying Buddy scripts on path:', pathname);
     
-    // Manual script loading as a fallback in case Next.js Script component fails
-    const loadScriptManually = () => {
-      // Check if MBB is already defined
-      if (window.MBB) {
-        console.log('MBB already exists, skipping manual script loading');
-        return;
-      }
-      
+    // Simple, direct script loading approach
+    const loadScripts = async () => {
       try {
-        console.log('Attempting to load Buying Buddy scripts manually');
+        // 1. Load the CSS
+        const linkEl = document.createElement('link');
+        linkEl.rel = 'stylesheet';
+        linkEl.href = 'https://www.mbb2.com/version3/css/theme/acid/KNdD0yub';
+        document.head.appendChild(linkEl);
         
-        // Step 1: Load CSS
-        const cssLink = document.createElement('link');
-        cssLink.rel = 'stylesheet';
-        cssLink.href = 'https://www.mbb2.com/version3/css/theme/acid/KNdD0yub';
-        document.head.appendChild(cssLink);
-        
-        // Step 2: Initialize MBB object
+        // 2. Add the MBB initialization
         window.MBB = {seo: "false", data: {acid: "KNdD0yub"}};
         window.mbbMapLoaded = function() {
-          if (typeof window.MBB !== 'undefined') {
-            window.MBB.googleMaps = true;
-            console.log('Google Maps loaded for MBB (manual)');
-          }
+          if (window.MBB) window.MBB.googleMaps = true;
         };
         
-        // Step 3: Load Google Maps
-        const mapsScript = document.createElement('script');
-        mapsScript.src = 'https://maps.googleapis.com/maps/api/js?callback=mbbMapLoaded&libraries=places';
-        document.head.appendChild(mapsScript);
+        // 3. Load Google Maps script
+        const loadGoogleMaps = new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://maps.googleapis.com/maps/api/js?callback=mbbMapLoaded&libraries=places';
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
         
-        // Step 4: Load main script
-        const mainScript = document.createElement('script');
-        mainScript.src = 'https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz';
-        mainScript.onload = function() {
-          console.log('Buying Buddy main script loaded manually');
+        // 4. Load the main Buying Buddy script
+        const loadMainScript = new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz';
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+        
+        // Load scripts in parallel
+        await Promise.all([loadGoogleMaps, loadMainScript]);
+        
+        // Refresh MBB after a short delay
+        setTimeout(() => {
           if (window.MBB && typeof window.MBB.refresh === 'function') {
-            setTimeout(() => {
-              try {
-                window.MBB.refresh();
-                console.log('MBB refresh called after manual loading');
-              } catch (err) {
-                console.error('Error calling MBB.refresh after manual loading:', err);
-              }
-            }, 1000);
+            window.MBB.refresh();
+            console.log('MBB refresh called successfully');
           }
-        };
-        document.head.appendChild(mainScript);
+        }, 1000);
+        
       } catch (err) {
-        console.error('Error in manual script loading:', err);
+        console.error('Error loading Buying Buddy scripts:', err);
       }
     };
     
-    // Try manual loading after a delay if MBB isn't defined yet
-    const timer = setTimeout(() => {
-      if (!window.MBB) {
-        loadScriptManually();
-      }
-    }, 5000);
+    // Only load if MBB isn't already defined
+    if (!window.MBB) {
+      loadScripts();
+    }
     
+    // Cleanup
     return () => {
-      window.onerror = originalOnError;
-      clearTimeout(timer);
+      // Nothing to clean up
     };
   }, [pathname]);
   
-  // Load on home, property detail pages, listings, and search pages
-  if (!pathname.includes('/property') && 
-      pathname !== '/' && 
-      pathname !== '/listing-results' && 
-      pathname !== '/search') {
-    return null;
-  }
-
-  return (
-    <>
-      {/* Buying Buddy plugin v5.02 for General HTML; Authorized Domain: 1352south.vercel.app */}
-      <Script
-        id="buying-buddy-css"
-        src="https://www.mbb2.com/version3/css/theme/acid/KNdD0yub"
-        strategy="afterInteractive"
-        onError={(e) => {
-          console.error('Error loading Buying Buddy CSS:', e);
-        }}
-      />
-      <Script
-        id="buying-buddy-init"
-        strategy="afterInteractive"
-        onError={(e) => {
-          console.error('Error initializing Buying Buddy:', e);
-        }}
-        dangerouslySetInnerHTML={{
-          __html: `
-            try {
-              var MBB = {seo : "false",data:{ acid : "KNdD0yub" } };
-              function mbbMapLoaded(){ 
-                if (typeof MBB !== 'undefined') {
-                  MBB.googleMaps = true;
-                  console.log('Google Maps loaded for MBB');
-                }
-              };
-            } catch (err) {
-              console.error('Error in MBB init script:', err);
-            }
-          `
-        }}
-      />
-      <Script
-        id="google-maps"
-        src="https://maps.googleapis.com/maps/api/js?callback=mbbMapLoaded&libraries=places"
-        strategy="afterInteractive"
-        onError={(e) => {
-          console.error('Error loading Google Maps:', e);
-        }}
-      />
-      <Script
-        id="buying-buddy-main"
-        src="https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz"
-        strategy="afterInteractive"
-        onError={(e) => {
-          console.error('Error loading Buying Buddy main script:', e);
-        }}
-        onLoad={() => {
-          console.log('Buying Buddy script loaded successfully');
-          // Manually trigger refresh after script loads
-          if (window.MBB && typeof window.MBB.refresh === 'function') {
-            setTimeout(() => {
-              try {
-                window.MBB.refresh();
-                console.log('MBB refresh called');
-              } catch (err) {
-                console.error('Error calling MBB.refresh:', err);
-              }
-            }, 1000);
-          }
-        }}
-      />
-    </>
-  );
+  // Return null as we're injecting scripts manually
+  return null;
 }

@@ -25,6 +25,8 @@ export default function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+ 
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-sm py-3' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6">
@@ -32,7 +34,20 @@ export default function Header() {
           <Link href="/" className="text-white text-2xl font-light tracking-widest">
             <span>1352</span> <span className="text-amber-400">SOUTH</span>
           </Link>
-          <nav className="hidden md:flex space-x-8"></nav>
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/#about" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
+              About
+            </Link>
+            <Link href="/#properties" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
+              Featured
+            </Link>
+            <Link href="/listing-results" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
+              Listings
+            </Link>
+            <Link href="/search" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
+              Search
+            </Link>
+          </nav>
           
           <div className="hidden md:block">
             <Link 
@@ -99,13 +114,39 @@ export default function Header() {
                     className="text-gray-300 hover:text-amber-400 text-2xl font-light tracking-wide block"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Residences
+                    Featured
                   </Link>
                 </motion.li>
                 <motion.li
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
+                >
+                  <Link 
+                    href="/listing-results" 
+                    className="text-gray-300 hover:text-amber-400 text-2xl font-light tracking-wide block"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Listings
+                  </Link>
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <Link 
+                    href="/search" 
+                    className="text-gray-300 hover:text-amber-400 text-2xl font-light tracking-wide block"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Search
+                  </Link>
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
                 >
                   <Link 
                     href="/#amenities" 
@@ -118,7 +159,7 @@ export default function Header() {
                 <motion.li
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
+                  transition={{ delay: 0.6 }}
                 >
                   <Link 
                     href="/#contact" 
@@ -131,7 +172,7 @@ export default function Header() {
                 <motion.li
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
+                  transition={{ delay: 0.7 }}
                 >
                   <Link 
                     href="/#contact" 

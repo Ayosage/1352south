@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import BuyingBuddyScript from "@/components/property/BuyingBuddyScript";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       >
         <div className="flex flex-col min-h-screen">
           <Header />
+          <BuyingBuddyScript />
           <main className="flex-grow">
             {children}
           </main>

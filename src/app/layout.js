@@ -2,8 +2,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import BuyingBuddyScript from "@/components/property/BuyingBuddyScript";
 import ErrorBoundary from "@/components/layout/ErrorBoundary";
+import BuyingBuddyScriptLoader from "@/components/property/BuyingBuddyScriptLoader";
+import BrowserCompatibilityCheck from "@/components/layout/BrowserCompatibilityCheck";
+import buyingBuddyHeadTags from "@/lib/head-tags";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,6 +20,15 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "1352 South - Real Estate",
   description: "Find your dream home with 1352 South Real Estate",
+  // We can't use complex objects directly in metadata
+  openGraph: {
+    title: "1352 South - Luxury Real Estate",
+    description: "Find your dream home with 1352 South Real Estate",
+    url: 'https://1352south.vercel.app',
+    siteName: '1352 South',
+    locale: 'en_US',
+    type: 'website',
+  }
 };
 
 export default function RootLayout({ children }) {
@@ -29,11 +40,12 @@ export default function RootLayout({ children }) {
         <ErrorBoundary>
           <div className="flex flex-col min-h-screen">
             <Header />
-            <BuyingBuddyScript />
+            <BuyingBuddyScriptLoader />
             <main className="flex-grow">
               {children}
             </main>
             <Footer />
+            <BrowserCompatibilityCheck />
           </div>
         </ErrorBoundary>
       </body>

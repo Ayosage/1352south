@@ -4,7 +4,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ErrorBoundary from "@/components/layout/ErrorBoundary";
 import BuyingBuddyScriptLoader from "@/components/property/BuyingBuddyScriptLoader";
-import BrowserCompatibilityCheck from "@/components/layout/BrowserCompatibilityCheck";
 import buyingBuddyHeadTags from "@/lib/head-tags";
 
 const geistSans = Geist({
@@ -45,7 +44,7 @@ export default function RootLayout({ children }) {
               {children}
             </main>
             <Footer />
-            <BrowserCompatibilityCheck />
+          
           </div>
         </ErrorBoundary>
       </body>

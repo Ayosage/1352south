@@ -342,7 +342,7 @@ export default function Home() {
                   <div>
                     <p className="font-normal text-white mb-1">Location</p>
                     <p>1352 South Street</p>
-                    <p>Miami, FL 33130</p>
+                    <p>Philadelphia, PA 19147</p>
                   </div>
                 </div>
                 

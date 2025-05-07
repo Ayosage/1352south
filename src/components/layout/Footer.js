@@ -12,7 +12,7 @@ export default function Footer() {
               <span>1352</span> <span className="text-amber-400">SOUTH</span>
             </Link>
             <p className="text-gray-400 mt-4 font-light">
-              Redefining luxury living with meticulously designed residences in the heart of Miami.
+              Redefining luxury living with meticulously designed residences in the heart of Philadelphia.
             </p>
           </div>
           
@@ -75,7 +75,7 @@ export default function Footer() {
             <div className="w-12 h-[1px] bg-amber-400 mb-6"></div>
             <address className="not-italic text-gray-400 font-light">
               <p className="mb-3">1352 South Street</p>
-              <p className="mb-3">Miami, FL 33130</p>
+              <p className="mb-3">Philadelphia, PA 19147</p>
               <p className="mb-3">info@1352south.com</p>
               <p className="mb-3">(123) 456-7890</p>
             </address>

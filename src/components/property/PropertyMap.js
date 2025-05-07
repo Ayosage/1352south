@@ -16,12 +16,12 @@ const icon = L.icon({
   shadowSize: [41, 41]
 });
 
-// Dummy coordinates for Miami, FL (in a real app, you would get these from geocoding the address)
+// Dummy coordinates for Philadelphia, PA (in a real app, you would get these from geocoding the address)
 const dummyCoordinates = {
-  'Miami': [25.7617, -80.1918],
-  'Miami Beach': [25.7907, -80.1300],
-  'Coral Gables': [25.7215, -80.2684],
-  'North Miami': [25.8900, -80.1858]
+  'Philadelphia': [39.9526, -75.1652],
+  'Center City': [39.9508, -75.1578],
+  'South Philly': [39.9250, -75.1700],
+  'Northern Liberties': [39.9640, -75.1411]
 };
 
 export default function PropertyMap({ property }) {
@@ -29,7 +29,7 @@ export default function PropertyMap({ property }) {
   // For this demo, we'll use hardcoded coordinates based on the city
   const getCoordinates = () => {
     const city = property.address.city;
-    return dummyCoordinates[city] || [25.7617, -80.1918]; // Default to Miami
+    return dummyCoordinates[city] || [39.9526, -75.1652]; // Default to Philadelphia
   };
 
   const coordinates = getCoordinates();

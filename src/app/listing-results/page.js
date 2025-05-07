@@ -39,7 +39,6 @@ export default function ListingsPage() {
           animate={isLoaded ? "visible" : "hidden"}
           variants={fadeIn}
         >
-          <div id="MBBv3_ListingResults"></div>
           <div className="py-12">
             <h1 className="text-4xl font-light mb-6 tracking-wider">
               Available <span className="text-amber-400">Residences</span>

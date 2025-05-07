@@ -3,10 +3,10 @@ export const properties = [
   {
     id: 1,
     address: {
-      street: '1352 South Main Street',
-      city: 'Miami',
-      state: 'FL',
-      zipCode: '33130'
+      street: '1352 South Street',
+      city: 'Philadelphia',
+      state: 'PA',
+      zipCode: '19147'
     },
     price: 689000,
     bedrooms: 3,

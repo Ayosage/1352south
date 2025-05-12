@@ -5,12 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { properties } from '@/lib/propertyData';
-import PropertyList from '@/components/property/PropertyList';
-import FallbackListings from '@/components/property/FallbackListings';
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [showFallbackProperties, setShowFallbackProperties] = useState(false);
   
   useEffect(() => {
     setIsLoaded(true);
@@ -26,17 +23,6 @@ export default function Home() {
     } else {
       console.warn('MBB object not available or refresh method not found');
     }
-    
-    // Check if Buying Buddy elements are populated after a timeout
-    const timer = setTimeout(() => {
-      const listingResults = document.getElementById('MBBv3_FeaturedList');
-      if (listingResults && listingResults.children.length <= 1) {
-        console.log('Buying Buddy listings not populated, showing fallback');
-        setShowFallbackProperties(true);
-      }
-    }, 5000); // Wait 5 seconds
-    
-    return () => clearTimeout(timer);
   }, []);
 
   // Animation variants
@@ -207,20 +193,6 @@ export default function Home() {
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-400"></div>
               </div>
             </div>
-            
-            {/* Fallback static property list if Buying Buddy fails to load */}
-            {showFallbackProperties && (
-              <div className="mt-8">
-                <div className="bg-neutral-900 p-8 border border-neutral-800 mb-8">
-                  <h3 className="text-xl font-light text-amber-400 mb-4">Using Local Property Listings</h3>
-                  <p className="text-gray-300 mb-6 font-light">
-                    We&apos;re currently using our local property database. For the most up-to-date listings,
-                    please try refreshing the page or contact us directly.
-                  </p>
-                </div>
-                <PropertyList properties={properties} />
-              </div>
-            )}
           </motion.div>
         </div>
       </section>

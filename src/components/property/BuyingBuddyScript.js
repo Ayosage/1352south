@@ -7,13 +7,7 @@ import Head from 'next/head';
 export default function BuyingBuddyScript() {
   const pathname = usePathname();
   
-  // Load on home, property detail pages, listings, and search pages
-  if (!pathname.includes('/property') && 
-      pathname !== '/' && 
-      pathname !== '/listing-results' && 
-      pathname !== '/search') {
-    return null;
-  }
+  
 
   return (
     <>

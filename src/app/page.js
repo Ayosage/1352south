@@ -195,6 +195,7 @@ export default function Home() {
             viewport={{ once: true, amount: 0.1 }}
             variants={stagger}
           >
+            <div id="listings" className="mb-12"></div>
             {/* Buying Buddy Listings Container */}
             <div 
               id="MBBv3_FeaturedList"
@@ -223,143 +224,7 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      
-      {/* Amenities Section */}
-      <section className="py-24 bg-black text-white">
-        <div className="container mx-auto px-6">
-          <motion.div 
-            className="text-center mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.h2 
-              className="text-3xl font-light mb-6 tracking-wider"
-              variants={fadeIn}
-            >
-              Unparalleled <span className="text-amber-400">Amenities</span>
-            </motion.h2>
-            <motion.div className="w-16 h-[1px] bg-amber-400 mx-auto mb-8" variants={fadeIn}></motion.div>
-            <motion.p 
-              className="text-gray-300 max-w-2xl mx-auto font-light"
-              variants={fadeIn}
-            >
-              Experience a lifestyle of comfort and convenience with our carefully curated amenities
-            </motion.p>
-          </motion.div>
-          
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={stagger}
-          >
-            {/* Amenity 1 */}
-            <motion.div 
-              className="border border-neutral-800 p-8 hover:border-amber-400 transition-colors duration-300"
-              variants={fadeIn}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-            >
-              <div className="text-amber-400 mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-light mb-4 tracking-wide">Private Fitness Center</h3>
-              <p className="text-gray-400 font-light">
-                State-of-the-art equipment and dedicated spaces for yoga, cardio, and strength training, open 24/7 exclusively for residents.
-              </p>
-            </motion.div>
-            
-            {/* Amenity 2 */}
-            <motion.div 
-              className="border border-neutral-800 p-8 hover:border-amber-400 transition-colors duration-300"
-              variants={fadeIn}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-            >
-              <div className="text-amber-400 mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-light mb-4 tracking-wide">Rooftop Infinity Pool</h3>
-              <p className="text-gray-400 font-light">
-                Enjoy panoramic city views from our stunning infinity pool, complemented by private cabanas and a landscaped terrace.
-              </p>
-            </motion.div>
-            
-            {/* Amenity 3 */}
-            <motion.div 
-              className="border border-neutral-800 p-8 hover:border-amber-400 transition-colors duration-300"
-              variants={fadeIn}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-            >
-              <div className="text-amber-400 mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-light mb-4 tracking-wide">Concierge Services</h3>
-              <p className="text-gray-400 font-light">
-                Our dedicated concierge staff is available 24/7 to assist with everything from dinner reservations to event planning.
-              </p>
-            </motion.div>
-            
-            {/* Amenity 4 */}
-            <motion.div 
-              className="border border-neutral-800 p-8 hover:border-amber-400 transition-colors duration-300"
-              variants={fadeIn}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-            >
-              <div className="text-amber-400 mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-light mb-4 tracking-wide">Private Theater</h3>
-              <p className="text-gray-400 font-light">
-                An intimate screening room with premium sound and comfortable seating for private viewings and events.
-              </p>
-            </motion.div>
-            
-            {/* Amenity 5 */}
-            <motion.div 
-              className="border border-neutral-800 p-8 hover:border-amber-400 transition-colors duration-300"
-              variants={fadeIn}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-            >
-              <div className="text-amber-400 mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-light mb-4 tracking-wide">Spa & Wellness Center</h3>
-              <p className="text-gray-400 font-light">
-                Rejuvenate in our spa featuring massage rooms, sauna, steam room, and a relaxation lounge with premium amenities.
-              </p>
-            </motion.div>
-            
-            {/* Amenity 6 */}
-            <motion.div 
-              className="border border-neutral-800 p-8 hover:border-amber-400 transition-colors duration-300"
-              variants={fadeIn}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-            >
-              <div className="text-amber-400 mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-light mb-4 tracking-wide">Resident Lounge</h3>
-              <p className="text-gray-400 font-light">
-                A sophisticated space for social gatherings, featuring a fully-equipped kitchen, fireplace, and comfortable seating areas.
-              </p>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+       
       
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-neutral-900 text-white">

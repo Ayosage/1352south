@@ -38,7 +38,7 @@ export default function Header() {
             <Link href="/#about" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
               About
             </Link>
-            <Link href="/#properties" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
+            <Link href="/#listings" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
               Properties
             </Link>
           </nav>
@@ -104,7 +104,7 @@ export default function Header() {
                   transition={{ delay: 0.2 }}
                 >
                   <Link 
-                    href="/#properties" 
+                    href="/#listings" 
                     className="text-gray-300 hover:text-amber-400 text-2xl font-light tracking-wide block"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

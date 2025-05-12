@@ -34,13 +34,14 @@ export default function Header() {
           <Link href="/" className="text-white text-2xl font-light tracking-widest">
             <span>1352</span> <span className="text-amber-400">SOUTH</span>
           </Link>
-          <nav className="hidden md:flex space-x-8">
-            <Link href="/#listings" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
+          
+          <div className="hidden md:flex space-x-4">
+            <Link 
+              href="/#listings" 
+              className="bg-transparent border border-amber-400 text-amber-400 py-2 px-4 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-sm tracking-wider uppercase font-light"
+            >
               Properties
             </Link>
-          </nav>
-          
-          <div className="hidden md:block">
             <Link 
               href="/#contact" 
               className="bg-transparent border border-amber-400 text-amber-400 py-2 px-4 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-sm tracking-wider uppercase font-light"
@@ -81,7 +82,7 @@ export default function Header() {
             transition={{ duration: 0.3 }}
           >
             <nav className="container mx-auto px-6">
-              <ul className="flex flex-col space-y-6">
+              <ul className="flex flex-col space-y-8">
                 <motion.li
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -89,7 +90,7 @@ export default function Header() {
                 >
                   <Link 
                     href="/#listings" 
-                    className="text-gray-300 hover:text-amber-400 text-2xl font-light tracking-wide block"
+                    className="inline-block bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-lg tracking-wider uppercase font-light"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Properties
@@ -102,7 +103,7 @@ export default function Header() {
                 >
                   <Link 
                     href="/#amenities" 
-                    className="text-gray-300 hover:text-amber-400 text-2xl font-light tracking-wide block"
+                    className="inline-block bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-lg tracking-wider uppercase font-light"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Amenities
@@ -115,23 +116,10 @@ export default function Header() {
                 >
                   <Link 
                     href="/#contact" 
-                    className="text-gray-300 hover:text-amber-400 text-2xl font-light tracking-wide block"
+                    className="inline-block bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-lg tracking-wider uppercase font-light"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Contact
-                  </Link>
-                </motion.li>
-                <motion.li
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 }}
-                >
-                  <Link 
-                    href="/#contact" 
-                    className="inline-block mt-4 bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-lg tracking-wider uppercase font-light"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Schedule Tour
                   </Link>
                 </motion.li>
               </ul>

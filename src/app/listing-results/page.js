@@ -72,7 +72,7 @@ export default function ListingsPage() {
             </div>
             
             {/* Fallback in case Buying Buddy fails to load */}
-            <FallbackListings />
+            
           </div>
         </motion.div>
       </div>

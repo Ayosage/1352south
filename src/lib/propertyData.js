@@ -20,10 +20,10 @@ export const properties = [
   {
     id: 2,
     address: {
-      street: '873 Ocean Drive',
-      city: 'Miami Beach',
-      state: 'FL',
-      zipCode: '33139'
+      street: '873 Delaware Avenue',
+      city: 'Center City',
+      state: 'PA',
+      zipCode: '19106'
     },
     price: 1250000,
     bedrooms: 4,

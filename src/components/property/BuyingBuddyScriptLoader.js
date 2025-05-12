@@ -9,9 +9,7 @@ export default function BuyingBuddyScriptLoader() {
   useEffect(() => {
     // Only load on relevant pages
     if (!pathname.includes('/property') && 
-        pathname !== '/' && 
-        pathname !== '/listing-results' && 
-        pathname !== '/search') {
+        pathname !== '/') {
       return;
     }
 

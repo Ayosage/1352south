@@ -39,13 +39,7 @@ export default function Header() {
               About
             </Link>
             <Link href="/#properties" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
-              Featured
-            </Link>
-            <Link href="/listing-results" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
-              Listings
-            </Link>
-            <Link href="/search" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
-              Search
+              Properties
             </Link>
           </nav>
           
@@ -114,33 +108,7 @@ export default function Header() {
                     className="text-gray-300 hover:text-amber-400 text-2xl font-light tracking-wide block"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Featured
-                  </Link>
-                </motion.li>
-                <motion.li
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <Link 
-                    href="/listing-results" 
-                    className="text-gray-300 hover:text-amber-400 text-2xl font-light tracking-wide block"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Listings
-                  </Link>
-                </motion.li>
-                <motion.li
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <Link 
-                    href="/search" 
-                    className="text-gray-300 hover:text-amber-400 text-2xl font-light tracking-wide block"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Search
+                    Properties
                   </Link>
                 </motion.li>
                 <motion.li

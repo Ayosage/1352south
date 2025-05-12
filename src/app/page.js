@@ -8,7 +8,42 @@ import { properties } from '@/lib/propertyData';
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
+  const galleryImages = [
+    '/images/DSC02435.jpg',
+    '/images/DSC02455.jpg',
+    '/images/DSC02483.jpg',
+    '/images/DSC02509.jpg',
+    '/images/1352 South St Unit 308-Full-20.jpg',
+    '/images/1352 South St Unit 308-Full-22.jpg'
+  ];
+  
+  // Auto-advance carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change image every 5 seconds
+    
+    return () => clearInterval(interval);
+  }, [galleryImages.length]);
+  
+  // Manual navigation functions
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+  
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
+    );
+  };
+  
+  // Initialize and load MBB scripts
   useEffect(() => {
     setIsLoaded(true);
     
@@ -101,8 +136,8 @@ export default function Home() {
         </motion.div>
       </section>
       
-      {/* About Section with Split Image */}
-      <section className="py-24 bg-black text-white">
+      {/* About Section with Photo Gallery */}
+      <section id="about" className="py-24 bg-black text-white">
         <div className="container mx-auto px-6">
           <motion.div 
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
@@ -113,12 +148,58 @@ export default function Home() {
           >
             <motion.div variants={fadeIn}>
               <div className="relative h-[500px] w-full">
-                <Image
-                  src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&h=1200&q=80"
-                  alt="Luxury condo interior"
-                  fill
-                  className="object-cover"
-                />
+                {/* Photo Gallery Carousel */}
+                <div className="relative h-full w-full overflow-hidden">
+                  {galleryImages.map((src, index) => (
+                    <div 
+                      key={index} 
+                      className={`absolute inset-0 transition-opacity duration-1000 ${
+                        index === currentImageIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                      }`}
+                    >
+                      <Image
+                        src={src}
+                        alt={`Luxury property image ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                  
+                  {/* Carousel Controls */}
+                  <button 
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-colors"
+                    aria-label="Previous image"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button 
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-colors"
+                    aria-label="Next image"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Indicator Dots */}
+                  <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+                    {galleryImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`w-2 h-2 rounded-full transition-colors ${
+                          index === currentImageIndex ? 'bg-amber-400' : 'bg-white/50'
+                        }`}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
                 <div className="absolute inset-0 border border-amber-400 -translate-x-4 -translate-y-4 z-[-1]"></div>
               </div>
             </motion.div>

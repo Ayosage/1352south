@@ -35,9 +35,6 @@ export default function Header() {
             <span>1352</span> <span className="text-amber-400">SOUTH</span>
           </Link>
           <nav className="hidden md:flex space-x-8">
-            <Link href="/#about" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
-              About
-            </Link>
             <Link href="/#listings" className="text-gray-300 hover:text-amber-400 transition-colors font-light tracking-wide">
               Properties
             </Link>
@@ -85,19 +82,6 @@ export default function Header() {
           >
             <nav className="container mx-auto px-6">
               <ul className="flex flex-col space-y-6">
-                <motion.li
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                >
-                  <Link 
-                    href="/#about" 
-                    className="text-gray-300 hover:text-amber-400 text-2xl font-light tracking-wide block"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    About
-                  </Link>
-                </motion.li>
                 <motion.li
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}

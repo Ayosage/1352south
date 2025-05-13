@@ -1,14 +1,11 @@
 'use client';
 
 import Script from 'next/script';
-import { usePathname } from 'next/navigation';
-import Head from 'next/head';
+import { useRouter } from 'next/navigation';
 
 export default function BuyingBuddyScript() {
-  const pathname = usePathname();
+  const router = useRouter();
   
-  
-
   return (
     <>
       {/* Buying Buddy plugin v5.02 for General HTML; Authorized Domain: 1352south.vercel.app */}
@@ -22,8 +19,15 @@ export default function BuyingBuddyScript() {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-            var MBB = {seo : "false",data:{ acid : "KNdD0yub" } };
-            function mbbMapLoaded(){ MBB.googleMaps = true; };
+            var MBB = {
+              seo: "false", 
+              data: { acid: "KNdD0yub" },
+              propertyClickHandler: function(propertyId) {
+                window.location.href = "/listing-details?id=" + propertyId;
+                return false;
+              }
+            };
+            function mbbMapLoaded(){ if(window.MBB) window.MBB.googleMaps = true; };
           `
         }}
       />

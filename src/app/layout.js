@@ -3,8 +3,8 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ErrorBoundary from "@/components/layout/ErrorBoundary";
-import BuyingBuddyScriptLoader from "@/components/property/BuyingBuddyScriptLoader";
-import buyingBuddyHeadTags from "@/lib/head-tags";
+import BuyingBuddyScript from "@/components/property/BuyingBuddyScript";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,13 +33,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <BuyingBuddyScript />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ErrorBoundary>
           <div className="flex flex-col min-h-screen">
             <Header />
-            <BuyingBuddyScriptLoader />
             <main className="flex-grow">
               {children}
             </main>

@@ -8,14 +8,6 @@ export default function BuyingBuddyScriptLoader() {
   const router = useRouter();
   
   useEffect(() => {
-    // Only load on relevant pages
-    if (!pathname.includes('/property') && 
-        pathname !== '/' && 
-        pathname !== '/listing-details' &&
-        pathname !== '/listings') {
-      return;
-    }
-
     // Load CSS
     const linkElement = document.createElement('link');
     linkElement.rel = 'stylesheet';
@@ -64,7 +56,7 @@ export default function BuyingBuddyScriptLoader() {
         // Elements might already be removed
       }
     };
-  }, [pathname]);
+  }, [pathname, router]);
 
   return null; // No UI needed
 }

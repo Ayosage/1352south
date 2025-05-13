@@ -11,7 +11,8 @@ export default function BuyingBuddyScriptLoader() {
     // Only load on relevant pages
     if (!pathname.includes('/property') && 
         pathname !== '/' && 
-        pathname !== '/listing-details') {
+        pathname !== '/listing-details' &&
+        pathname !== '/listings') {
       return;
     }
 

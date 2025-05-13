@@ -40,7 +40,19 @@ export default function Header() {
               href="/#listings" 
               className="bg-transparent border border-amber-400 text-amber-400 py-2 px-4 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-sm tracking-wider uppercase font-light"
             >
-              Properties
+              Featured
+            </Link>
+            <Link 
+              href="/listings" 
+              className="bg-transparent border border-amber-400 text-amber-400 py-2 px-4 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-sm tracking-wider uppercase font-light"
+            >
+              All Listings
+            </Link>
+            <Link 
+              href="/listing-details" 
+              className="bg-transparent border border-amber-400 text-amber-400 py-2 px-4 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-sm tracking-wider uppercase font-light"
+            >
+              Search
             </Link>
             <Link 
               href="/#contact" 
@@ -86,21 +98,50 @@ export default function Header() {
                 <motion.li
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
+                  transition={{ delay: 0.1 }}
                 >
                   <Link 
                     href="/#listings" 
                     className="inline-block bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-lg tracking-wider uppercase font-light"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Properties
+                    Featured
+                  </Link>
+                </motion.li>
+
+                <motion.li
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <Link 
+                    href="/listings" 
+                    className="inline-block bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-lg tracking-wider uppercase font-light"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    All Listings
+                  </Link>
+                </motion.li>
+
+                <motion.li
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <Link 
+                    href="/listing-details" 
+                    className="inline-block bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-lg tracking-wider uppercase font-light"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Search
                   </Link>
                 </motion.li>
                
                 <motion.li
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
+                  transition={{ delay: 0.4 }}
+                >
                 >
                   <Link 
                     href="/#contact" 

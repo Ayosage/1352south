@@ -8,7 +8,6 @@ export default function BuyingBuddyScript() {
   
   return (
     <>
-      {/* Buying Buddy plugin v5.02 for General HTML; Authorized Domain: 1352south.vercel.app */}
       <Script
         id="buying-buddy-css"
         src="https://www.mbb2.com/version3/css/theme/acid/KNdD0yub"

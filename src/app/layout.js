@@ -19,7 +19,6 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "1352 South - Real Estate",
   description: "Find your dream home with 1352 South Real Estate",
-  // We can't use complex objects directly in metadata
   openGraph: {
     title: "1352 South - Luxury Real Estate",
     description: "Find your dream home with 1352 South Real Estate",

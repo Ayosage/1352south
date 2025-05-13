@@ -19,18 +19,16 @@ export default function Home() {
     '/images/1352 South St Unit 308-Full-22.jpg'
   ];
   
-  // Auto-advance carousel
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
         prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // Change image every 5 seconds
+    }, 5000); 
     
     return () => clearInterval(interval);
   }, [galleryImages.length]);
   
-  // Manual navigation functions
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) => 
       prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
@@ -43,11 +41,9 @@ export default function Home() {
     );
   };
   
-  // Initialize and load MBB scripts
   useEffect(() => {
     setIsLoaded(true);
     
-    // MBB needs to refresh when the page loads
     if (window.MBB && typeof window.MBB.refresh === 'function') {
       try {
         console.log('Calling MBB.refresh from main page');
@@ -60,7 +56,6 @@ export default function Home() {
     }
   }, []);
 
-  // Animation variants
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.8 } }
@@ -83,7 +78,6 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-black">
         <div className="absolute inset-0 z-0">
           <Image
@@ -136,7 +130,6 @@ export default function Home() {
         </motion.div>
       </section>
       
-      {/* About Section with Photo Gallery */}
       <section id="about" className="py-24 bg-black text-white">
         <div className="container mx-auto px-6">
           <motion.div 
@@ -148,7 +141,6 @@ export default function Home() {
           >
             <motion.div variants={fadeIn}>
               <div className="relative h-[500px] w-full">
-                {/* Photo Gallery Carousel */}
                 <div className="relative h-full w-full overflow-hidden">
                   {galleryImages.map((src, index) => (
                     <div 
@@ -166,7 +158,6 @@ export default function Home() {
                     </div>
                   ))}
                   
-                  {/* Carousel Controls */}
                   <button 
                     onClick={prevImage}
                     className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-colors"
@@ -186,7 +177,6 @@ export default function Home() {
                     </svg>
                   </button>
                   
-                  {/* Indicator Dots */}
                   <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
                     {galleryImages.map((_, index) => (
                       <button
@@ -231,7 +221,6 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Featured Properties Section */}
       <section id="properties" className="py-24 bg-neutral-900 text-white">
         <div className="container mx-auto px-6">
           <motion.div 
@@ -263,14 +252,12 @@ export default function Home() {
             variants={stagger}
           >
             <div id="listings" className="mb-12"></div>
-            {/* Buying Buddy Listings Container */}
             <div 
               id="MBBv3_FeaturedList"
               filter="mls_id:demo+listing_status:active+login-panel:false+header-menu:false+limit:15+order:price"
               className="w-full min-h-[600px] mb-12"
               property-click="MBB.propertyClickHandler"
             >
-              {/* Content will be injected by Buying Buddy */}
               <div className="flex justify-center items-center h-64">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-400"></div>
               </div>
@@ -280,7 +267,6 @@ export default function Home() {
       </section>
        
       
-      {/* Contact Section */}
       <section id="contact" className="py-24 bg-neutral-900 text-white">
         <div className="container mx-auto px-6">
           <motion.div 

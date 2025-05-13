@@ -4,15 +4,12 @@ import { useEffect, useState, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-// Client component for the listings page
 function ListingsContent() {
   const [isLoaded, setIsLoaded] = useState(false);
   
   useEffect(() => {
-    // Set loaded state after component mounts
     setIsLoaded(true);
     
-    // MBB needs to refresh when the page loads
     if (window.MBB && typeof window.MBB.refresh === 'function') {
       try {
         console.log('Calling MBB.refresh from listings page');
@@ -25,7 +22,6 @@ function ListingsContent() {
     }
   }, []);
 
-  // Animation variants
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.8 } }
@@ -59,13 +55,11 @@ function ListingsContent() {
               </Link>
             </div>
 
-            {/* Buying Buddy Listings Results Container */}
             <div 
               id="MBBv3_ListingResults"
               className="w-full min-h-[800px]"
               property-click="MBB.propertyClickHandler"
             >
-              {/* Content will be injected by Buying Buddy */}
               <div className="flex justify-center items-center h-64">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-400"></div>
               </div>
@@ -77,7 +71,6 @@ function ListingsContent() {
   );
 }
 
-// Fallback component shown while the listings are loading
 function ListingsFallback() {
   return (
     <div className="bg-black text-white min-h-screen pt-24">
@@ -96,7 +89,6 @@ function ListingsFallback() {
   );
 }
 
-// Main page component wrapped with Suspense
 export default function ListingsPage() {
   return (
     <Suspense fallback={<ListingsFallback />}>

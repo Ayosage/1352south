@@ -5,23 +5,19 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
-// Client Component for fetching and displaying listing details
 function ListingDetails() {
   const [isLoaded, setIsLoaded] = useState(false);
   const searchParams = useSearchParams();
   const listingId = searchParams.get('id');
   
   useEffect(() => {
-    // Set loaded state after component mounts
     setIsLoaded(true);
     
-    // MBB needs to refresh when the page loads
     if (window.MBB && typeof window.MBB.refresh === 'function') {
       try {
         console.log('Calling MBB.refresh from listing-details page');
         window.MBB.refresh();
         
-        // If we have a listing ID, set it as the current property
         if (listingId && window.MBB.setCurrentProperty) {
           console.log('Setting current property ID:', listingId);
           window.MBB.setCurrentProperty(listingId);
@@ -34,7 +30,6 @@ function ListingDetails() {
     }
   }, [listingId]);
 
-  // Animation variants
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.8 } }
@@ -69,13 +64,11 @@ function ListingDetails() {
               </Link>
             </div>
 
-            {/* Buying Buddy Search Details Container */}
             <div 
               id="MBBv3_SearchDetails"
               className="w-full min-h-[600px]"
               property-id={listingId || ''}
             >
-              {/* Content will be injected by Buying Buddy */}
               <div className="flex justify-center items-center h-64">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-400"></div>
               </div>
@@ -87,7 +80,6 @@ function ListingDetails() {
   );
 }
 
-// Fallback component shown while the listing details are loading
 function ListingDetailsFallback() {
   return (
     <div className="bg-black text-white min-h-screen pt-24">

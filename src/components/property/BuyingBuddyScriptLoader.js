@@ -1,10 +1,11 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function BuyingBuddyScriptLoader() {
   const pathname = usePathname();
+  const router = useRouter();
   
   useEffect(() => {
     // Only load on relevant pages
@@ -20,8 +21,18 @@ export default function BuyingBuddyScriptLoader() {
     linkElement.href = 'https://www.mbb2.com/version3/css/theme/acid/KNdD0yub';
     document.head.appendChild(linkElement);
 
-    // Initialize MBB object
-    window.MBB = {seo: "false", data: {acid: "KNdD0yub"}};
+    // Initialize MBB object with custom handlers for property clicks
+    window.MBB = {
+      seo: "false", 
+      data: {acid: "KNdD0yub"},
+      // Custom event handler for property clicks in listings
+      propertyClickHandler: function(propertyId) {
+        // Navigate to listing details page with the property ID
+        router.push(`/listing-details?id=${propertyId}`);
+        return false; // Prevent default action
+      }
+    };
+    
     window.mbbMapLoaded = function() { 
       if (window.MBB) window.MBB.googleMaps = true;
     };

@@ -268,6 +268,7 @@ export default function Home() {
               id="MBBv3_FeaturedList"
               filter="mls_id:demo+listing_status:active+login-panel:false+header-menu:false+limit:15+order:price"
               className="w-full min-h-[600px] mb-12"
+              property-click="MBB.propertyClickHandler"
             >
               {/* Content will be injected by Buying Buddy */}
               <div className="flex justify-center items-center h-64">

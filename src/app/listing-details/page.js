@@ -3,9 +3,12 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 export default function ListingDetailsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const searchParams = useSearchParams();
+  const listingId = searchParams.get('id');
   
   useEffect(() => {
     // Set loaded state after component mounts
@@ -16,13 +19,19 @@ export default function ListingDetailsPage() {
       try {
         console.log('Calling MBB.refresh from listing-details page');
         window.MBB.refresh();
+        
+        // If we have a listing ID, set it as the current property
+        if (listingId && window.MBB.setCurrentProperty) {
+          console.log('Setting current property ID:', listingId);
+          window.MBB.setCurrentProperty(listingId);
+        }
       } catch (err) {
         console.error('Error refreshing MBB:', err);
       }
     } else {
       console.warn('MBB object not available or refresh method not found');
     }
-  }, []);
+  }, [listingId]);
 
   // Animation variants
   const fadeIn = {
@@ -45,7 +54,9 @@ export default function ListingDetailsPage() {
             <div className="w-16 h-[1px] bg-amber-400 mb-8"></div>
             
             <p className="text-gray-300 mb-12 font-light max-w-3xl">
-              Find your perfect home with our advanced property search. Filter by price, bedrooms, location, and more.
+              {listingId 
+                ? "View all the details about this property and reach out if you're interested."
+                : "Find your perfect home with our advanced property search. Filter by price, bedrooms, location, and more."}
             </p>
             
             <div className="mb-12">
@@ -61,6 +72,7 @@ export default function ListingDetailsPage() {
             <div 
               id="MBBv3_SearchDetails"
               className="w-full min-h-[600px]"
+              property-id={listingId || ''}
             >
               {/* Content will be injected by Buying Buddy */}
               <div className="flex justify-center items-center h-64">

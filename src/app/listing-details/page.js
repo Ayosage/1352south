@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
-export default function ListingDetailsPage() {
+// Client Component for fetching and displaying listing details
+function ListingDetails() {
   const [isLoaded, setIsLoaded] = useState(false);
   const searchParams = useSearchParams();
   const listingId = searchParams.get('id');
@@ -83,5 +84,33 @@ export default function ListingDetailsPage() {
         </motion.div>
       </div>
     </div>
+  );
+}
+
+// Fallback component shown while the listing details are loading
+function ListingDetailsFallback() {
+  return (
+    <div className="bg-black text-white min-h-screen pt-24">
+      <div className="container mx-auto px-6">
+        <div className="py-12">
+          <h1 className="text-4xl font-light mb-6 tracking-wider">
+            Loading <span className="text-amber-400">Property Details</span>
+          </h1>
+          <div className="w-16 h-[1px] bg-amber-400 mb-8"></div>
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-400"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Main page component wrapped with Suspense
+export default function ListingDetailsPage() {
+  return (
+    <Suspense fallback={<ListingDetailsFallback />}>
+      <ListingDetails />
+    </Suspense>
   );
 }

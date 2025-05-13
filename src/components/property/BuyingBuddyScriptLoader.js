@@ -8,6 +8,11 @@ export default function BuyingBuddyScriptLoader() {
   
   useEffect(() => {
     // Only load on relevant pages
+    if (!pathname.includes('/property') && 
+        pathname !== '/' && 
+        pathname !== '/listing-details') {
+      return;
+    }
 
     // Load CSS
     const linkElement = document.createElement('link');

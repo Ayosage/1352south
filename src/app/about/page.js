@@ -128,12 +128,6 @@ export default function About() {
             >
               Photo Gallery
             </button>
-            <button 
-              className={`px-6 py-3 mx-2 mb-3 border-b-2 ${activeTab === 'amenities' ? 'border-amber-400 text-amber-400' : 'border-transparent text-gray-400'} transition-all`}
-              onClick={() => setActiveTab('amenities')}
-            >
-              Amenities
-            </button>
           </div>
           
           {activeTab === 'about' && (
@@ -141,60 +135,77 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+              className="max-w-7xl mx-auto"
             >
-              <div className="relative h-[500px] w-full">
-                <div className="relative h-full w-full overflow-hidden">
-                  <Image
-                    src="/images/DSC02483.jpg"
-                    alt="1352 Lofts Exterior"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 border border-amber-400 -translate-x-4 -translate-y-4 z-[-1]"></div>
-              </div>
-              
-              <div className="space-y-10">
-                <div>
-                  <h2 className="text-3xl font-light mb-6 tracking-wider">
-                    Our <span className="text-amber-400">Vision</span>
-                  </h2>
-                  <div className="w-16 h-[1px] bg-amber-400 mb-8"></div>
-                  <p className="text-gray-300 mb-6 leading-relaxed font-light">
-                    At 1352 Lofts, we believe that luxury is not just about opulence, but about creating spaces that inspire and elevate everyday living. Our vision was to transform a historic Philadelphia structure into a modern haven that respects its architectural heritage while embracing contemporary design.
-                  </p>
-                  <p className="text-gray-300 mb-6 leading-relaxed font-light">
-                    Founded on the principles of exceptional craftsmanship, thoughtful design, and community focus, 1352 Lofts represents the pinnacle of urban residential living. Each residence has been meticulously designed to maximize space, light, and comfort, creating homes that are as functional as they are beautiful.
-                  </p>
-                  <p className="text-gray-300 mb-6 leading-relaxed font-light">
-                    Our commitment to quality extends beyond our physical spaces to the community we&apos;ve cultivated. 1352 Lofts is more than a residence — it&apos;s a lifestyle that balances privacy with connection, luxury with practicality, and personal space with shared experiences.
-                  </p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div className="space-y-12">
+                  <div>
+                    <h2 className="text-3xl font-light mb-6 tracking-wider">
+                      Our <span className="text-amber-400">Vision</span>
+                    </h2>
+                    <div className="w-16 h-[1px] bg-amber-400 mb-8"></div>
+                    <p className="text-gray-300 mb-6 leading-relaxed font-light">
+                      At 1352 Lofts, we believe that luxury is not just about opulence, but about creating spaces that inspire and elevate everyday living. Our vision was to transform a historic Philadelphia structure into a modern haven that respects its architectural heritage while embracing contemporary design.
+                    </p>
+                    <p className="text-gray-300 mb-6 leading-relaxed font-light">
+                      Founded on the principles of exceptional craftsmanship, thoughtful design, and community focus, 1352 Lofts represents the pinnacle of urban residential living. Each residence has been meticulously designed to maximize space, light, and comfort, creating homes that are as functional as they are beautiful.
+                    </p>
+                    <p className="text-gray-300 mb-6 leading-relaxed font-light">
+                      Our commitment to quality extends beyond our physical spaces to the community we&apos;ve cultivated. 1352 Lofts is more than a residence — it&apos;s a lifestyle that balances privacy with connection, luxury with practicality, and personal space with shared experiences.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h2 className="text-3xl font-light mb-6 tracking-wider">
+                      The <span className="text-amber-400">Architects</span>
+                    </h2>
+                    <div className="w-16 h-[1px] bg-amber-400 mb-8"></div>
+                    
+                    <div className="relative h-[280px] w-full mb-6 overflow-hidden cursor-pointer group" onClick={() => openLightbox('/images/partners/partners.jpg')}>
+                      <Image
+                        src="/images/partners/partners.jpg"
+                        alt="Voith & Mactavish Architects"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    <p className="text-gray-300 mb-6 leading-relaxed font-light">
+                      Designed by the acclaimed Voith & Mactavish Architects (VMA), 1352 Lofts reflects the firm&apos;s commitment to innovation grounded in tradition. Known for their thoughtful, context-driven designs, VMA pushed the boundaries of loft-style living in Philadelphia with this project — delivering open, flexible, and modern residences while respecting the city&apos;s historic character.
+                    </p>
+                    <p className="text-gray-300 mb-6 leading-relaxed font-light">
+                      The building offers easy-to-maintain, contemporary condos that balance industrial-inspired loft aesthetics with practical, long-term livability. As Philadelphia&apos;s longest-operating woman-owned architecture practice, VMA brought their signature blend of beauty, sustainability, and client-focused design to 1352 Lofts, creating a community that feels both timeless and distinctly urban.
+                    </p>
+                    <p className="text-gray-300 mb-8 leading-relaxed font-light">
+                      Learn more about their award-winning work at <a href="https://voithandmactavish.com/profile/firm/" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:underline">voithandmactavish.com</a>
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <Link 
+                      href="/#contact" 
+                      className="inline-block bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-all duration-300 text-sm tracking-widest uppercase"
+                    >
+                      Contact Us
+                    </Link>
+                  </div>
                 </div>
                 
-                <div>
-                  <h2 className="text-3xl font-light mb-6 tracking-wider">
-                    The <span className="text-amber-400">Architects</span>
-                  </h2>
-                  <div className="w-16 h-[1px] bg-amber-400 mb-8"></div>
-                  <p className="text-gray-300 mb-6 leading-relaxed font-light">
-                    Designed by the acclaimed Voith & Mactavish Architects (VMA), 1352 Lofts reflects the firm&apos;s commitment to innovation grounded in tradition. Known for their thoughtful, context-driven designs, VMA pushed the boundaries of loft-style living in Philadelphia with this project — delivering open, flexible, and modern residences while respecting the city&apos;s historic character.
-                  </p>
-                  <p className="text-gray-300 mb-6 leading-relaxed font-light">
-                    The building offers easy-to-maintain, contemporary condos that balance industrial-inspired loft aesthetics with practical, long-term livability. As Philadelphia&apos;s longest-operating woman-owned architecture practice, VMA brought their signature blend of beauty, sustainability, and client-focused design to 1352 Lofts, creating a community that feels both timeless and distinctly urban.
-                  </p>
-                  <p className="text-gray-300 mb-8 leading-relaxed font-light">
-                    Learn more about their award-winning work at <a href="https://voithandmactavish.com/profile/firm/" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:underline">voithandmactavish.com</a>
-                  </p>
-                </div>
-                
-                <div>
-                  <Link 
-                    href="/#contact" 
-                    className="inline-block bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-all duration-300 text-sm tracking-widest uppercase"
-                  >
-                    Contact Us
-                  </Link>
+                <div className="relative h-[500px] w-full self-start sticky top-24">
+                  <div className="relative h-full w-full overflow-hidden">
+                    <Image
+                      src="/images/DSC02483.jpg"
+                      alt="1352 Lofts Exterior"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="absolute inset-0 border border-amber-400 -translate-x-4 -translate-y-4 z-[-1]"></div>
                 </div>
               </div>
             </motion.div>
@@ -280,7 +291,7 @@ export default function About() {
                 <div className="relative h-[500px] w-full self-start sticky top-24">
                   <div className="relative h-full w-full overflow-hidden">
                     <Image
-                      src="/images/DSC02455.jpg"
+                      src="/images/1352 South St Unit 308-Full-22.jpg"
                       alt="Neighborhood - Philadelphia"
                       fill
                       className="object-cover"
@@ -321,115 +332,6 @@ export default function About() {
                     </div>
                   </motion.div>
                 ))}
-              </div>
-            </motion.div>
-          )}
-          
-          {activeTab === 'amenities' && (
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="max-w-7xl mx-auto"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div className="bg-neutral-900 p-8 border border-neutral-800">
-                  <h3 className="text-2xl font-light mb-6">Building <span className="text-amber-400">Features</span></h3>
-                  <div className="w-12 h-[1px] bg-amber-400 mb-8"></div>
-                  <ul className="space-y-4 text-gray-300 font-light">
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      24-hour concierge service
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      State-of-the-art fitness center
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      Rooftop terrace with panoramic views
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      Resident lounge with co-working spaces
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      Pet Friendly Building
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      Private parking garage
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      Bicycle storage
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="bg-neutral-900 p-8 border border-neutral-800">
-                  <h3 className="text-2xl font-light mb-6">Residence <span className="text-amber-400">Features</span></h3>
-                  <div className="w-12 h-[1px] bg-amber-400 mb-8"></div>
-                  <ul className="space-y-4 text-gray-300 font-light">
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      Floor-to-ceiling windows
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      Designer kitchens with premium appliances
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      Spacious open floor plans
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      Luxury bathroom fixtures
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      In-unit washer and dryer
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      Smart home technology
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      Private balconies or terraces in select units
-                    </li>
-                  </ul>
-                </div>
               </div>
             </motion.div>
           )}

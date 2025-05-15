@@ -20,8 +20,7 @@ export default function Home() {
     '/images/renders/Untitled-1-07.jpg',
     '/images/renders/Untitled-1-08.jpg',
     '/images/renders/Untitled-1-09.jpg',
-    '/images/renders/Untitled-1-10.jpg',
-    '/images/renders/Untitled-1-11.jpg'
+    '/images/renders/Untitled-1-10.jpg'
   ];
   
   useEffect(() => {
@@ -221,6 +220,138 @@ export default function Home() {
               >
                 Discover More
               </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+      
+      <section id="amenities" className="py-24 bg-neutral-950 text-white">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.h2 
+              className="text-3xl font-light mb-6 tracking-wider"
+              variants={fadeIn}
+            >
+              Premium <span className="text-amber-400">Amenities</span>
+            </motion.h2>
+            <motion.div className="w-16 h-[1px] bg-amber-400 mx-auto mb-8" variants={fadeIn}></motion.div>
+            <motion.p 
+              className="text-gray-300 max-w-2xl mx-auto font-light mb-12"
+              variants={fadeIn}
+            >
+              1352 Lofts offers an array of thoughtfully designed amenities to enhance your living experience
+            </motion.p>
+          </motion.div>
+          
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+          >
+            <motion.div variants={fadeIn} className="bg-neutral-900 p-8 border border-neutral-800">
+              <h3 className="text-2xl font-light mb-6">Building <span className="text-amber-400">Features</span></h3>
+              <div className="w-12 h-[1px] bg-amber-400 mb-8"></div>
+              <ul className="space-y-4 text-gray-300 font-light">
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  24-hour concierge service
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  State-of-the-art fitness center
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Rooftop terrace with panoramic views
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Resident lounge with co-working spaces
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Pet Friendly Building
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Private parking garage
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Bicycle storage
+                </li>
+              </ul>
+            </motion.div>
+            
+            <motion.div variants={fadeIn} className="bg-neutral-900 p-8 border border-neutral-800">
+              <h3 className="text-2xl font-light mb-6">Residence <span className="text-amber-400">Features</span></h3>
+              <div className="w-12 h-[1px] bg-amber-400 mb-8"></div>
+              <ul className="space-y-4 text-gray-300 font-light">
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Floor-to-ceiling windows
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Designer kitchens with premium appliances
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Spacious open floor plans
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Luxury bathroom fixtures
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  In-unit washer and dryer
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Smart home technology
+                </li>
+                <li className="flex items-center">
+                  <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Private balconies or terraces in select units
+                </li>
+              </ul>
             </motion.div>
           </motion.div>
         </div>

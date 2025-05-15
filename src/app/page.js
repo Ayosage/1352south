@@ -48,17 +48,6 @@ export default function Home() {
   
   useEffect(() => {
     setIsLoaded(true);
-    
-    if (window.MBB && typeof window.MBB.refresh === 'function') {
-      try {
-        console.log('Calling MBB.refresh from main page');
-        window.MBB.refresh();
-      } catch (err) {
-        console.error('Error refreshing MBB:', err);
-      }
-    } else {
-      console.warn('MBB object not available or refresh method not found');
-    }
   }, []);
 
   const fadeIn = {

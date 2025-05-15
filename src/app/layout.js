@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ErrorBoundary from "@/components/layout/ErrorBoundary";
+import NavigationRefresher from "@/components/layout/NavigationRefresher";
 import BuyingBuddyScript from "@/components/property/BuyingBuddyScript";
 import Script from "next/script";
 
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ErrorBoundary>
+          <NavigationRefresher />
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">

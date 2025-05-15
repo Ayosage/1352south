@@ -17,13 +17,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "1352 South - Real Estate",
-  description: "Find your dream home with 1352 South Real Estate",
+  title: "1352 Lofts - Real Estate",
+  description: "Find your dream home with 1352 Lofts Real Estate",
   openGraph: {
-    title: "1352 South - Luxury Real Estate",
-    description: "Find your dream home with 1352 South Real Estate",
+    title: "1352 Lofts - Luxury Real Estate",
+    description: "Find your dream home with 1352 Lofts Real Estate",
     url: 'https://1352south.vercel.app',
-    siteName: '1352 South',
+    siteName: '1352 Lofts',
     locale: 'en_US',
     type: 'website',
   }

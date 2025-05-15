@@ -32,7 +32,7 @@ export default function Header() {
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-white text-2xl font-light tracking-widest">
-            <span>1352</span> <span className="text-amber-400">SOUTH</span>
+            <span>1352</span> <span className="text-amber-400">LOFTS</span>
           </Link>
           
           <div className="hidden md:flex space-x-4">

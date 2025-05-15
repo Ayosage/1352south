@@ -81,7 +81,7 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center bg-black">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1200&q=80"
+            src="/images/hero.jpg"
             alt="Luxury condo exterior"
             fill
             priority
@@ -100,7 +100,7 @@ export default function Home() {
             className="text-5xl md:text-7xl font-thin text-white mb-6 tracking-wider"
             variants={slideUp}
           >
-            <span className="font-light">1352</span> <span className="text-amber-400 font-light">SOUTH</span>
+            <span className="font-light">1352</span> <span className="text-amber-400 font-light">LOFTS</span>
           </motion.h1>
           <motion.p 
             className="text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-extralight tracking-wide"
@@ -200,18 +200,18 @@ export default function Home() {
               </h2>
               <div className="w-16 h-[1px] bg-amber-400 mb-8"></div>
               <p className="text-gray-300 mb-8 leading-relaxed font-light">
-                At 1352 South, we&apos;ve redefined luxury living. Our meticulously crafted residences 
+                At 1352 Lofts, we&apos;ve redefined luxury living. Our meticulously crafted residences 
                 blend modern aesthetics with timeless elegance, creating spaces that are as 
                 functional as they are beautiful. Each detail has been considered, each finish 
                 carefully selected to create homes of distinction.
               </p>
               <p className="text-gray-300 mb-10 leading-relaxed font-light">
-                Located in the heart of the city&apos;s most vibrant district, 1352 South offers 
+                Located in the heart of the city&apos;s most vibrant district, 1352 Lofts offers 
                 unmatched access to culture, cuisine, and convenience. Our residents enjoy 
                 exclusive amenities designed to enhance well-being and foster community.
               </p>
               <Link 
-                href="#contact" 
+                href="/about" 
                 className="inline-block bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-all duration-300 text-sm tracking-widest uppercase"
               >
                 Discover More
@@ -282,7 +282,7 @@ export default function Home() {
               </h2>
               <div className="w-16 h-[1px] bg-amber-400 mb-8"></div>
               <p className="text-gray-300 mb-10 font-light">
-                Experience 1352 South in person. Contact our sales team to arrange a private tour of our available residences and amenities.
+                Experience 1352 Lofts in person. Contact our sales team to arrange a private tour of our available residences and amenities.
               </p>
               
               <address className="not-italic text-gray-300 font-light mb-10">
@@ -320,7 +320,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-normal text-white mb-1">Email</p>
-                    <p>info@1352south.com</p>
+                    <p>info@1352lofts.com</p>
                   </div>
                 </div>
               </address>

@@ -159,7 +159,7 @@ export default function About() {
                 </p>
                 
                 <Link 
-                  href="#contact" 
+                  href="/#contact" 
                   className="inline-block bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-all duration-300 text-sm tracking-widest uppercase"
                 >
                   Contact Us

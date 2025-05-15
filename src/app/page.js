@@ -11,12 +11,17 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const galleryImages = [
-    '/images/DSC02435.jpg',
-    '/images/DSC02455.jpg',
-    '/images/DSC02483.jpg',
-    '/images/DSC02509.jpg',
-    '/images/1352 South St Unit 308-Full-20.jpg',
-    '/images/1352 South St Unit 308-Full-22.jpg'
+    '/images/renders/Untitled-1-01.jpg',
+    '/images/renders/Untitled-1-02.jpg',
+    '/images/renders/Untitled-1-03.jpg',
+    '/images/renders/Untitled-1-04.jpg',
+    '/images/renders/Untitled-1-05.jpg',
+    '/images/renders/Untitled-1-06.jpg',
+    '/images/renders/Untitled-1-07.jpg',
+    '/images/renders/Untitled-1-08.jpg',
+    '/images/renders/Untitled-1-09.jpg',
+    '/images/renders/Untitled-1-10.jpg',
+    '/images/renders/Untitled-1-11.jpg'
   ];
   
   useEffect(() => {

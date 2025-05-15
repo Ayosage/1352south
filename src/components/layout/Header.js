@@ -37,6 +37,12 @@ export default function Header() {
           
           <div className="hidden md:flex space-x-4">
             <Link 
+              href="/about" 
+              className="bg-transparent border border-amber-400 text-amber-400 py-2 px-4 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-sm tracking-wider uppercase font-light"
+            >
+              About
+            </Link>
+            <Link 
               href="/#listings" 
               className="bg-transparent border border-amber-400 text-amber-400 py-2 px-4 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-sm tracking-wider uppercase font-light"
             >
@@ -86,6 +92,19 @@ export default function Header() {
                 <motion.li
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <Link 
+                    href="/about" 
+                    className="inline-block bg-transparent border border-amber-400 text-amber-400 py-3 px-8 rounded-none hover:bg-amber-400 hover:text-black transition-colors text-lg tracking-wider uppercase font-light"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    About
+                  </Link>
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
                   <Link 
@@ -100,7 +119,7 @@ export default function Header() {
                 <motion.li
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
+                  transition={{ delay: 0.3 }}
                 >
                   <Link 
                     href="/#contact" 

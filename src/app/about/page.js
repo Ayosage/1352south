@@ -241,7 +241,7 @@ export default function About() {
                       <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
                       </svg>
-                      Secure package delivery system
+                      Pet Friendly Building
                     </li>
                     <li className="flex items-center">
                       <svg className="text-amber-400 w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-
+import MBBWidgetLoader from '@/components/property/MBBWidgetLoader';
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -48,6 +48,17 @@ export default function Home() {
   
   useEffect(() => {
     setIsLoaded(true);
+    
+    // Initialize or refresh MBB when returning to the home page
+    if (typeof window !== 'undefined' && typeof window.initOrRefreshMBB === 'function') {
+      console.log('Calling global initOrRefreshMBB from home page');
+      // Delay to ensure scripts are ready
+      const timeoutId = setTimeout(() => {
+        window.initOrRefreshMBB();
+      }, 800);
+      
+      return () => clearTimeout(timeoutId);
+    }
   }, []);
 
   const fadeIn = {
@@ -256,6 +267,7 @@ export default function Home() {
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-400"></div>
               </div>
             </div>
+            <MBBWidgetLoader />
           </motion.div>
         </div>
       </section>

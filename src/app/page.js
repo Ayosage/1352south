@@ -390,7 +390,7 @@ export default function Home() {
             <div id="listings" className="mb-12"></div>
             <div 
               id="MBBv3_FeaturedList"
-              filter="mls_id:demo+listing_status:active+login-panel:false+header-menu:false+limit:15+order:price"
+              filter="mls_id:demo+listing_status:active+zip_code:19147+address_num_min:1352+address_num_max:1352+street_name:South St+login-panel:false+header-menu:false+limit:12+order:create_dt desc,price"
               className="w-full min-h-[600px] mb-12"
               property-click="MBB.propertyClickHandler"
             >
